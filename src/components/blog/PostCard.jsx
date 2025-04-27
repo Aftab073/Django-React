@@ -21,7 +21,7 @@ const PostCard = ({ post = {} }) => {
 
   // If cover_image_url is a full URL starting with http, use it directly
   // Otherwise, use a local placeholder
-  const serverPlaceholder = 'http://localhost:8000/media/posts/placeholder.jpg';
+  const serverPlaceholder = `${BASE_URL}/media/posts/placeholder.jpg`;
   const defaultImage = serverPlaceholder;
 
   // Determine the image URL to use
@@ -85,4 +85,4 @@ const PostCard = ({ post = {} }) => {
   );
 };
 
-export default PostCard; 
+export default PostCard;

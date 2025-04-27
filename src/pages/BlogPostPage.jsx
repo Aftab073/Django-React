@@ -120,7 +120,7 @@ const BlogPostPage = () => {
   // If image error occurred, use default image
   if (imageError) {
     // Use absolute URL for placeholder
-    imageUrl = post.cover_image_url || `http://localhost:8000/media/posts/placeholder.jpg`;
+    imageUrl = post.cover_image_url || `${BASE_URL}/media/posts/placeholder.jpg`;
   }
 
   // For debugging 
@@ -269,4 +269,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPostPage; 
+export default BlogPostPage;

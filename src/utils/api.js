@@ -1,9 +1,9 @@
 // API utilities for making requests to the backend
 
 // Set the API base URL
-export const API_BASE_URL = 'http://localhost:8000/api';
+export const API_BASE_URL = 'https://blog-backend-hpl0.onrender.com/api';
 // Base URL (without /api) for media/static files
-export const BASE_URL = 'http://localhost:8000';
+export const BASE_URL = 'https://blog-backend-hpl0.onrender.com';
 
 /**
  * Fetch data from the API
@@ -121,8 +121,8 @@ export const postFormData = async (endpoint, formData, method = 'POST') => {
  */
 export const getImageUrl = (imagePath) => {
   // Server fallback for placeholder image
-  const serverPlaceholder = 'http://localhost:8000/media/posts/placeholder.jpg';
-  
+  const serverPlaceholder = 'https://blog-backend-hpl0.onrender.com/media/posts/placeholder.jpg';
+
   if (!imagePath) return serverPlaceholder;
   
   // If the image path already includes the full domain (http), use it directly
@@ -148,4 +148,4 @@ export const getImageUrl = (imagePath) => {
   
   // 4. For any other path, just append to the base URL
   return `${BASE_URL}/${imagePath.startsWith('/') ? imagePath.substring(1) : imagePath}`;
-}; 
+};

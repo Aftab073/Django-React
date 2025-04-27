@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Button from '../components/ui/Button';
-import axios from 'axios';
+import { postApi } from '../utils/api';
 
 const schema = yup.object().shape({
   name: yup.string().required('Name is required'),
@@ -33,8 +33,8 @@ const ContactPage = () => {
     setError(null);
     
     try {
-      // Send data to the backend API
-      await axios.post('http://localhost:8000/api/contact/', data);
+      // Send data to the backend API using the postApi utility
+      await postApi('/contact/', data);
       
       // Reset form and show success message
       reset();
@@ -265,4 +265,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage; 
+export default ContactPage;
