@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { getImageUrl } from '../../utils/api';
+import { BASE_URL } from '../../config';
 
 const PostCard = ({ post = {} }) => {
   const [imageError, setImageError] = useState(false);

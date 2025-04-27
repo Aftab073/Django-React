@@ -12,7 +12,8 @@ import {
 } from 'react-share';
 import PostCard from '../components/blog/PostCard';
 import Button from '../components/ui/Button';
-import { fetchApi, API_BASE_URL, getImageUrl, deleteApi } from '../utils/api';
+import { fetchApi, getImageUrl, deleteApi } from '../utils/api';
+import { BASE_URL, API_BASE_URL } from '../config';
 
 const BlogPostPage = () => {
   const { slug } = useParams();
