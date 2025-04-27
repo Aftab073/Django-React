@@ -1,9 +1,5 @@
 // API utilities for making requests to the backend
-
-// Set the API base URL - ensure HTTPS
-export const API_BASE_URL = 'https://blog-backend-hpl0.onrender.com/api';
-// Base URL (without /api) for media/static files
-export const BASE_URL = 'https://blog-backend-hpl0.onrender.com';
+import { API_BASE_URL, BASE_URL } from '../config';
 
 /**
  * Fetch data from the API
@@ -108,12 +104,10 @@ export const postFormData = async (endpoint, formData, method = 'POST') => {
 
 /**
  * Get the complete image URL for an image path
- * @param {string} imagePath - The relative image path
- * @returns {string} - The complete image URL
  */
 export const getImageUrl = (imagePath) => {
   // Server fallback for placeholder image
-  const serverPlaceholder = 'https://blog-backend-hpl0.onrender.com/media/posts/placeholder.jpg';
+  const serverPlaceholder = `${BASE_URL}/media/posts/placeholder.jpg`;
 
   if (!imagePath) return serverPlaceholder;
   
