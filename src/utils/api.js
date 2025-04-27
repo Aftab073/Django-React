@@ -106,8 +106,11 @@ export const postFormData = async (endpoint, formData, method = 'POST') => {
  * Get the complete image URL for an image path
  */
 export const getImageUrl = (imagePath) => {
+  // Import BASE_URL from config to ensure it's available
+  const baseUrl = import.meta.env.VITE_BASE_URL || 'https://blog-backend-hpl0.onrender.com';
+  
   // Server fallback for placeholder image
-  const serverPlaceholder = `${BASE_URL}/media/posts/placeholder.jpg`;
+  const serverPlaceholder = `${baseUrl}/media/posts/placeholder.jpg`;
 
   if (!imagePath) return serverPlaceholder;
   
@@ -119,19 +122,19 @@ export const getImageUrl = (imagePath) => {
   // Handle different formats of paths
   // 1. If it's a media path that starts with /media/
   if (imagePath.startsWith('/media/')) {
-    return `${BASE_URL}${imagePath}`;
+    return `${baseUrl}${imagePath}`;
   }
   
   // 2. If it's a media path that doesn't have the leading slash
   if (imagePath.startsWith('media/')) {
-    return `${BASE_URL}/${imagePath}`;
+    return `${baseUrl}/${imagePath}`;
   }
   
   // 3. If it's just a filename in the posts directory
   if (!imagePath.includes('/')) {
-    return `${BASE_URL}/media/posts/${imagePath}`;
+    return `${baseUrl}/media/posts/${imagePath}`;
   }
   
   // 4. For any other path, just append to the base URL
-  return `${BASE_URL}/${imagePath.startsWith('/') ? imagePath.substring(1) : imagePath}`;
+  return `${baseUrl}/${imagePath.startsWith('/') ? imagePath.substring(1) : imagePath}`;
 };
