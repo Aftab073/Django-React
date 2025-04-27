@@ -1,5 +1,6 @@
-// Base URL for API calls
-export const BASE_URL = import.meta.env.VITE_BASE_URL || 'https://blog-backend-hpl0.onrender.com';
+// Base URL for API calls - hardcoded for production to avoid environment variable issues
+const API_HOST = 'https://blog-backend-hpl0.onrender.com';
 
-// API URL includes the /api path
-export const API_BASE_URL = `${BASE_URL}/api`;
+// Export as constants to ensure they're available throughout the app
+export const BASE_URL = API_HOST;
+export const API_BASE_URL = `${API_HOST}/api`;
