@@ -7,15 +7,13 @@ export const BASE_URL = 'https://blog-backend-hpl0.onrender.com';
 
 /**
  * Fetch data from the API
- * @param {string} endpoint - The API endpoint to fetch from (without the base URL)
- * @param {Object} options - Additional fetch options
- * @returns {Promise<any>} - The response data
  */
 export const fetchApi = async (endpoint, options = {}) => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       ...options,
-      credentials: 'include', // Include cookies for authentication
+      mode: 'cors',
+      credentials: 'omit', // Don't send credentials for cross-origin requests
       headers: {
         'Content-Type': 'application/json',
         ...options.headers,
@@ -49,14 +47,13 @@ export const postApi = async (endpoint, data) => {
 
 /**
  * Delete a resource from the API
- * @param {string} endpoint - The API endpoint to delete
- * @returns {Promise<any>} - The response data or null if no content
  */
 export const deleteApi = async (endpoint) => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: 'DELETE',
-      credentials: 'include',
+      mode: 'cors',
+      credentials: 'omit', // Don't send credentials for cross-origin requests
       headers: {
         'Content-Type': 'application/json',
       },
@@ -87,18 +84,13 @@ export const deleteApi = async (endpoint) => {
 
 /**
  * Post FormData to the API (for file uploads)
- * @param {string} endpoint - The API endpoint
- * @param {FormData} formData - The FormData object to post
- * @param {string} method - HTTP method (POST, PATCH, etc.)
- * @returns {Promise<any>} - The response data
  */
 export const postFormData = async (endpoint, formData, method = 'POST') => {
   try {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       method: method,
-      credentials: 'include',
-      // Don't set Content-Type header when sending FormData
-      // The browser will set it automatically with the boundary
+      mode: 'cors',
+      credentials: 'omit', // Don't send credentials for cross-origin requests
       body: formData,
     });
 
