@@ -1,6 +1,6 @@
 // API utilities for making requests to the backend
 
-// Set the API base URL
+// Set the API base URL - ensure HTTPS
 export const API_BASE_URL = 'https://blog-backend-hpl0.onrender.com/api';
 // Base URL (without /api) for media/static files
 export const BASE_URL = 'https://blog-backend-hpl0.onrender.com';
@@ -13,7 +13,7 @@ export const fetchApi = async (endpoint, options = {}) => {
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
       ...options,
       mode: 'cors',
-      credentials: 'omit', // Don't send credentials for cross-origin requests
+      credentials: 'omit',
       headers: {
         'Content-Type': 'application/json',
         ...options.headers,
