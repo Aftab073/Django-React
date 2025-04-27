@@ -8,6 +8,9 @@ import Button from '../components/ui/Button';
 import { useInView } from 'react-intersection-observer';
 import { fetchApi } from '../utils/api';
 
+// No need for separate image constants - we'll include them directly in the mock posts
+
+
 // Mock data to use when API fails
 const MOCK_POSTS = [
   {
@@ -18,7 +21,8 @@ const MOCK_POSTS = [
     content: '<p>React is a JavaScript library for building user interfaces...</p>',
     tags: ['react', 'javascript', 'frontend'],
     publishedAt: '2025-04-10T12:00:00Z',
-    readingTime: 5
+    readingTime: 5,
+    cover_image_url: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1470&auto=format&fit=crop'
   },
   {
     id: 2,
@@ -28,7 +32,8 @@ const MOCK_POSTS = [
     content: '<p>Django REST framework is a powerful and flexible toolkit for building Web APIs...</p>',
     tags: ['django', 'python', 'backend', 'api'],
     publishedAt: '2025-04-12T12:00:00Z',
-    readingTime: 7
+    readingTime: 7,
+    cover_image_url: 'https://images.unsplash.com/photo-1642082238384-4524b5459a01?q=80&w=1470&auto=format&fit=crop'
   },
   {
     id: 3,
@@ -38,7 +43,8 @@ const MOCK_POSTS = [
     content: '<p>In this tutorial, we will build a modern blog application using React for the frontend and Django for the backend...</p>',
     tags: ['react', 'django', 'fullstack', 'tutorial'],
     publishedAt: '2025-04-15T12:00:00Z',
-    readingTime: 10
+    readingTime: 10,
+    cover_image_url: 'https://images.unsplash.com/photo-1626968361222-291e74711449?q=80&w=1470&auto=format&fit=crop'
   },
 ];
 
